@@ -44,8 +44,8 @@
               >
                 <option
                   *ngFor="let categorie of categorieList; let i = index"
-                  value="{{categorie.value}}"
-                > {{ categorie.type }}
+                  value="{{categorie.label}}"
+                > {{ categorie.label }}
                 </option>              
               </select>
               <label for="categorieSelect">Categoria</label>
@@ -109,7 +109,7 @@
                 (click)="onSubmit()"
                 [disabled]="!formAtribute.valid"
               >
-                Enviar
+                Cadastrar Promoção
               </button>
 
               <button
