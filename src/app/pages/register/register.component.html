@@ -1,0 +1,127 @@
+<div class="register-wrapper d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="register-content p-3 p-md-5 m-auto">
+          <h1 class="register-content-title text-center mb-2">Cadastrar nova promoção</h1>
+          <form
+            name="form"
+            novalidate
+            [formGroup]="formAtribute"
+          >
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="gtinInput"
+                placeholder="GTIN"
+                maxlength="14"
+                formControlName="gtin"
+                required
+              >
+              <label for="gtinInput">GTIN</label>
+            </div>
+  
+            <div class="form-floating mb-3">
+              <textarea
+                class="form-control"
+                placeholder="Descrição completa"
+                id="descriptionText"
+                style="height: 80px"
+                maxlength="100"
+                formControlName="description"
+                required
+              ></textarea>
+              <label for="descriptionText">Descrição completa</label>
+            </div> 
+            
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                id="categorieSelect"
+                formControlName="categorie"
+                required
+              >
+                <option
+                  *ngFor="let categorie of categorieList; let i = index"
+                  value="{{categorie.value}}"
+                > {{ categorie.type }}
+                </option>              
+              </select>
+              <label for="categorieSelect">Categoria</label>
+            </div>
+  
+            <div class="form-floating mb-3">
+              <input
+                currencyMask 
+                maxlength="20"
+                placeholder="R$ 0,00"
+                formControlName="regularPrice"
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                class="form-control text-start"
+                id="regularPriceInput"
+                required
+              >
+              <label for="regularPriceInput">Preço regular</label>
+            </div>
+  
+            <div class="form-floating mb-3">
+              <input
+                currencyMask 
+                maxlength="20"
+                placeholder="R$ 0,00"
+                formControlName="promotionalPrice"
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                class="form-control text-start"
+                id="promotionalInput"
+                required
+              >
+              <label for="promotionalInput">Preço promocional</label>
+            </div>
+  
+            <div class="form-floating mb-3">
+              <input
+                type="date"
+                class="form-control"
+                id="promotionalInput"
+                placeholder="Data de inicial da promoção"
+                formControlName="promotionalStart"
+                required
+              >
+              <label for="promotionalInput">Data inicial da promoção</label>
+            </div>
+  
+            <div class="form-floating mb-3">
+              <input
+                type="date"
+                class="form-control"
+                id="promotionalFinishInput"
+                placeholder="Data de inicial da promoção"
+                formControlName="promotionalFinish"
+                required
+              >
+              <label for="promotionalFinishInput">Data final da promoção</label>
+            </div>
+
+            <div>
+              <button
+                class="btn"
+                (click)="onSubmit()"
+                [disabled]="!formAtribute.valid"
+              >
+                Enviar
+              </button>
+
+              <button
+                class="btn back mx-2"
+                (click)="navigate()"
+              >
+                Voltar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

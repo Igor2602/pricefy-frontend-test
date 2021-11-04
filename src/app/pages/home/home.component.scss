@@ -1,0 +1,33 @@
+@import '../../../assets/scss/global.scss';
+.home-wrapper {
+  min-height: 100vh;
+  background: #F0F2F5;
+
+  .btn {
+    @include btn()
+  }
+
+  .home-content {
+    border-radius: 15px;
+    border: 1px solid #DDE3ED;
+    box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.42);
+    background: #ffffff;
+
+    .table {
+      th, td {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      th {
+        border-bottom: none;
+      }
+  
+      td {
+        max-width: 180px;
+        min-width: 150px;
+        word-wrap: break-word;
+        text-align: center;
+      }
+    }
+  }
+}
