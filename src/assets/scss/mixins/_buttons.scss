@@ -1,0 +1,21 @@
+@mixin btn($primaryColor: #E39625, $secundaryColor: #ffffff, $fontSize: 16px, $border-radius: 12px, $text-transform: uppercase) {
+  background-color: $primaryColor; 
+  color: $secundaryColor;
+  border-color: $primaryColor; 
+  font-size: $fontSize;
+  border-radius: $border-radius;
+  text-transform: $text-transform;
+  font-weight: bold;  
+
+  &:hover, &:focus, &:active {
+    background-color: $primaryColor;
+    color: $secundaryColor;
+    border: 1px solid $primaryColor;    
+  }
+
+  &:disabled {
+    background-color: #CCD4DD;
+    color: #878E9D ;
+    border: 0 ;
+  }
+}

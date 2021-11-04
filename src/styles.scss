@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.btn {
+  box-shadow: 3px 3px 6px rgba(19,21,26,.04)!important;
+  outline: none !important;
+
+  &:hover, &:focus, &:active {
+    box-shadow: 3px 3px 6px rgba(19,21,26,.04) !important;
+    outline: none !important;
+  }
+}
