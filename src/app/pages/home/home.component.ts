@@ -38,30 +38,21 @@ export class HomeComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.setLocalStorage();
     this.table();
-    this.addNew();
   }
 
   table() {
     this.mytable =  JSON.parse(localStorage.getItem('Promotions') || '{}');
   }
 
+  setLocalStorage() {
+    if (!localStorage.getItem('Promotions')) {
+      localStorage.setItem('Promotions',JSON.stringify(this.mytableMock));
+    }
+  }
+
   navigate() {
     this.router.navigateByUrl('/cadastro');
   }
-
-  addNew(){
-    this.mytable.push(
-      {
-        categorie: "Informática",
-        description: "Hd Ssd 240Gb Kingston A400 Sata 3.0 2,5” Leitura 500MB/s e Gravação 450MB/s",
-        gtin: "Ssd 240Gb",
-        promotionalFinish: "2021-11-03",
-        promotionalPrice: 225,
-        promotionalStart: "2021-11-01",
-        regularPrice: 230,
-      },
-    );
-  }
-
 }
