@@ -18,6 +18,8 @@
 
     .btn {
       @include btn();
+      width: 100%;
+      max-width: 250px;
 
       &.back {
         @include btn($primaryColor: #E0E4EA, $secundaryColor: #2E4055)

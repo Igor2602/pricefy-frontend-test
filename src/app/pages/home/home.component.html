@@ -24,8 +24,8 @@
                   </th>
                 </tr>
               </thead>
-              <tbody *ngIf="mytable.length; else elseBlock">
-                <tr *ngFor="let item of mytable; let i = index">
+              <tbody>
+                <tr *ngFor="let item of mytable;">
                   <td>{{ item.gtin }}</td>
                   <td class="text-start">{{ item.description }}</td>
                   <td>{{ item.categorie }}</td>
@@ -33,15 +33,16 @@
                   <td>{{ item.promotionalPrice | currency : 'BRL' }}</td>
                   <td>{{ item.promotionalStart | date:"dd/MM/yyyy" }}</td>
                   <td>{{ item.promotionalFinish | date:"dd/MM/yyyy" }}</td>
+                  <td *ngIf="(item.promotionalFinish >= (myDate | amDateFormat: 'yyyy-MM-DD')); else elseBlock">
+                    <span class="badge bg-success">Ativa</span>
+                  </td>
+                  <ng-template #elseBlock>
+                    <td>
+                      <span class="badge bg-danger">Concluída</span>
+                    </td>
+                  </ng-template>
                 </tr>
               </tbody>
-              <ng-template #elseBlock>
-                <tbody>
-                  <tr>
-                    <td colspan="7">Você ainda não possui promoções cadastradas!</td>
-                  </tr>
-                </tbody>
-              </ng-template>
             </table>
           </div>
         </div>

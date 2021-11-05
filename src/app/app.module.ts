@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { MomentModule } from 'ngx-moment';
 
 registerLocaleData(ptBr);
 
@@ -25,7 +26,8 @@ registerLocaleData(ptBr);
     AppRoutingModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    NgxCurrencyModule
+    NgxCurrencyModule,
+    MomentModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
