@@ -10,8 +10,11 @@ import {Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   promotion: any = {};
+  myDate: Date;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.myDate = new Date();
+   }
 
   public formAtribute: FormGroup = new FormGroup({
     'gtin': new FormControl(null),
@@ -73,11 +76,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.formAtribute.status === 'VALID') {
-      this.promotion = Object.assign(this.promotion, this.formAtribute.value);
-      this.addPromotion(this.promotion);
-      this.router.navigateByUrl('/'); 
-    }
+    this.promotion = Object.assign(this.promotion, this.formAtribute.value);
+    this.addPromotion(this.promotion);
+    this.router.navigateByUrl('/'); 
   }
 
   addPromotion(promotion: any){

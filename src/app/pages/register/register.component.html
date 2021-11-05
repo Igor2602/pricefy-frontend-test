@@ -87,6 +87,7 @@
                 placeholder="Data de inicial da promoção"
                 formControlName="promotionalStart"
                 required
+                min="{{myDate | amLocal | amDateFormat: 'YYYY-MM-DD'}}"
               >
               <label for="promotionalInput">Data inicial da promoção</label>
             </div>
@@ -99,11 +100,12 @@
                 placeholder="Data de inicial da promoção"
                 formControlName="promotionalFinish"
                 required
+                min="{{myDate | amLocal | amDateFormat: 'YYYY-MM-DD'}}"
               >
               <label for="promotionalFinishInput">Data final da promoção</label>
             </div>
 
-            <div>
+            <div class="d-flex justify-content-center flex-column align-items-center flex-md-row">
               <button
                 class="btn"
                 (click)="onSubmit()"
@@ -113,7 +115,7 @@
               </button>
 
               <button
-                class="btn back mx-2"
+                class="btn back mx-md-2 mt-3 mt-md-0"
                 (click)="navigate()"
               >
                 Voltar
