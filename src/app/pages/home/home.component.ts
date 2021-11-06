@@ -52,6 +52,16 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  filterStart() {
+    var promotionalStart = this.mytable;
+    promotionalStart.sort((a: any, b: any) => +new Date(a.promotionalStart) - +new Date(b.promotionalStart));
+  }
+
+  filterFinish() {
+    var promotionalStart = this.mytable;
+    promotionalStart.sort((a: any, b: any) => +new Date(a.promotionalFinish) - +new Date(b.promotionalFinish));
+  }
+
   navigate() {
     this.router.navigateByUrl('/cadastro');
   }
