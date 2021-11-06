@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.setLocalStorage();
     this.table();
+    // this.filter();
   }
 
   table() {
@@ -50,6 +51,16 @@ export class HomeComponent implements OnInit {
     if (!localStorage.getItem('Promotions')) {
       localStorage.setItem('Promotions',JSON.stringify(this.mytableMock));
     }
+  }
+
+  filterStart() {
+    var promotionalStart = this.mytable;
+    promotionalStart.sort((a: any, b: any) => +new Date(a.promotionalStart) - +new Date(b.promotionalStart));
+  }
+
+  filterFinish() {
+    var promotionalStart = this.mytable;
+    promotionalStart.sort((a: any, b: any) => +new Date(a.promotionalFinish) - +new Date(b.promotionalFinish));
   }
 
   navigate() {
