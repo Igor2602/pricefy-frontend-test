@@ -31,3 +31,13 @@
     }
   }
 }
+
+@media(max-width: 768px) {
+  .home-wrapper {
+    .btn {
+      &.btn-filter {
+        font-size: 12px;
+      }
+    }
+  }
+}
